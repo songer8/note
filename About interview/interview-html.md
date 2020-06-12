@@ -42,7 +42,7 @@ https://zh.wikipedia.org/wiki/HTTP%E7%8A%B6%E6%80%81%E7%A0%81
 
 # web会话跟踪
 - cookie&session
-session把用户数据以对象形式保存在服务端，生成Session时，会默认设置一个cookie值为sessionId的cookie保存到客户端。
+session把用户数据以对象形式保存在服务端，同时生成一个sessionId，并且以setCookie的方式，放在Response headers里面，返回给浏览器。
 ![cookie](../image/cookies&session.png)
 
 - URL复写
