@@ -32,7 +32,7 @@ console.log(john.age);
 
 # 原型
 - 原理：
-![image](https://note.youdao.com/yws/public/resource/9185c4fc0bfb92d11cc5a6cef277c698/xmlnote/4F7363390FA64147B6950BFB90D4F6C6/4424)
+![原型对象](../image/prototype.png)
 - 作用：
   
   可以避免function写在全局作用域里面，污染全局作用域的命名空间；
