@@ -5,7 +5,7 @@
 201：Created 新增成功
 - 3**：重定向
 301：Moved Permanently 永久重定向
-302：Found 临时重定向
+302：Found 临时重定向(l临时停服)
 - 4**：客户端错误
 403：Forbidden 权限不足
 404：Not Found 请求失败
