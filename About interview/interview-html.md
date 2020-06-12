@@ -39,14 +39,12 @@ https://zh.wikipedia.org/wiki/HTTP%E7%8A%B6%E6%80%81%E7%A0%81
 - 百家号（自媒体平台）
 - 语义化的HTML标签（选择符合语义的标签）
 - img alt属性（鼠标放到这个图片上时，就会显示alt里的内容）
+- url重写
 
 # web会话跟踪
 - cookie&session
 session把用户数据以对象形式保存在服务端，同时生成一个sessionId，并且以setCookie的方式，放在Response headers里面，返回给浏览器。
 ![cookie](../image/cookies&session.png)
 
-- URL复写
-
-- 隐藏表单域
-
+- token（包含用户信息的加密的串）
 
