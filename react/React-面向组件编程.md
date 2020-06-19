@@ -35,12 +35,63 @@
 ```
 # 组件三大属性
 ## state
-- 编码操作
+### state用法概述
 1、初始化状态
+```
+this.state = {statePropertyName1 : value1}
+```
 2、读取某个状态值
+```
+this.state.statePropertyName
+```
 3、更新状态 => 组件界面更新
-```jsx
+```
+this.setstate = {statePropertyName2 : value2}
+```
 
+### 例子
+```jsx
+<body>
+
+<div id="example"></div>
+
+<script type="text/javascript" src="../js/react.development.js"></script>
+<script type="text/javascript" src="../js/react-dom.development.js"></script>
+<script type="text/javascript" src="../js/babel.min.js"></script>
+
+<script type="text/babel">
+  /*
+  需求: 自定义组件, 功能说明如下
+    1. 显示h2标题, 初始文本为: 你喜欢我
+    2. 点击标题更新为: 我喜欢你
+  */
+  class Like extends React.Component {
+    constructor (props) {
+      super(props)
+      // 初始化状态
+      this.state = {
+        isLikeMe: true
+      }
+    }
+
+    //更新isLikeMe的状态
+    //ps：非component组件内的方法，必须使用箭头函数，否则this默认不是组件对象，而是undefined；（可使用bind方法，将新增加的方法绑定为组件对象）；
+    change = () => {
+      this.setState({
+        isLikeMe: !this.state.isLikeMe
+      })
+    }
+
+    render () {
+      //读取状态
+      console.log('render()')
+      const text = this.state.isLikeMe ? '你喜欢我' : '我喜欢你'
+      return <h2 onClick={this.change}>{text}</h2>
+    }
+  }
+  ReactDOM.render(<Like />, document.getElementById('example'))
+</script>
+</body>
 
 ```
 
