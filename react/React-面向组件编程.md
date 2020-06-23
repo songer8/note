@@ -35,7 +35,10 @@
 ```
 # 组件三大属性
 ## state
-### state用法概述
+### 定义
+组件内部的状态
+
+### 用法概述
 1、初始化状态
 ```
 this.state = {statePropertyName1 : value1}
@@ -96,5 +99,45 @@ this.setstate = {statePropertyName2 : value2}
 ```
 
 ## props
+### 定义
+从外部拿数据
+### 用法概述
+1、标签内部读取属性值
+```JSX
+class Buttom extends React.Component{
+  render(){
+    return <buttom>{this.props.buttomName}</buttom>
+  }
+}
+```
+2、props的属性值设置类型限制和必要性限制
+```JSX
+Buttom.propTypes = {
+  buttomName:propTypes.string.isRequired
+}
+```
+
+3、默认属性值设置
+```JSX
+class Buttom extends React.Component{
+  static defaultProps = {
+  buttomName:'按钮'
+}
+
+  render(){
+    return <buttom>{this.props.buttomName}</buttom>
+  }
+}
+
+```
 
 ## refs与事件处理
+### 定义
+类似于选择器的功能
+
+### 用法概述
+```JSX
+//写在render(){return()}里面
+<input type="text" ref = "content" />
+<input type="text" ref = {(input) => this.input = input } />
+```
