@@ -47,4 +47,13 @@ session把用户数据以对象形式保存在服务端，同时生成一个sess
 ![cookie](../image/cookies&session.png)
 
 - token（包含用户信息的加密的串）
+用户首次登陆，通过加密算法，将明文部分（eg：uid）+ 明文部分和秘钥生成的加密文件，放在cookie里面返回浏览器。当用户之后请求数据的时候，cookie中携带的token在服务端解密，明文部分和加密文件中的明文部分一致，则用户身份通过验证，可直接从token上获取需要的字段。
 
+- token相较于session的优点
+session对于数据库请求的压力很大，token则自带需要的信息，可以直接从token上取。
+
+# viewpoint的使用
+``` <meta name="viewport" content="width=device-width, initial-scale=1.0"> ```
+还可能用到的设置：minimum-scale、maximum-scale(最大缩放值)、user-scalable（是否允许缩放）；
+
+            <input type="text" ref={input => this.msgInput = input}/>{' '}
