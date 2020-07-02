@@ -55,5 +55,3 @@ session对于数据库请求的压力很大，token则自带需要的信息，�
 # viewpoint的使用
 ``` <meta name="viewport" content="width=device-width, initial-scale=1.0"> ```
 还可能用到的设置：minimum-scale、maximum-scale(最大缩放值)、user-scalable（是否允许缩放）；
-
-            <input type="text" ref={input => this.msgInput = input}/>{' '}

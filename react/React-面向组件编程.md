@@ -11,7 +11,7 @@
     <div id="example2"></div>
 
     <script type="text/babel"> 
-    //1、定义组件
+    //1、定义组件 
     // 方式1：函数组件(简单组件)
     function MyComponent(){
         return <h2>函数组件(简单组件)</h2>
