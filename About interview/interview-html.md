@@ -55,3 +55,58 @@ session对于数据库请求的压力很大，token则自带需要的信息，�
 # viewpoint的使用
 ``` <meta name="viewport" content="width=device-width, initial-scale=1.0"> ```
 还可能用到的设置：minimum-scale、maximum-scale(最大缩放值)、user-scalable（是否允许缩放）；
+
+# DOM和BOM的区别
+### DOM
+是Document Object Model的缩写，即文档对象模型。他们都是浏览器提供给JavaScript的API接口。
+
+### BOM
+是Browser Object Model的缩写，即浏览器对象模型。
+
+### 常用BOM对象
+
+- history：
+
+当前浏览的历史记录；
+
+用法：history.push("页面链接")
+
+React Router 用的是history管理，用来管理url对应组件关系的路由。
+
+- location
+
+用法：location.href/location.search/location.domain
+
+- navigator
+
+存储浏览器信息
+
+用法：navigation.useragent
+
+![dom&bom](../image/dom&bom.png)
+
+# 相比html,html5新增了哪些结构标签？
+- 结构标签语义话，便于代码阅读；
+- aside 侧边
+- section 区块
+- header 顶bar
+- nav 导航栏
+- footer 底bar（企业资质信息）
+
+# 重排&重绘
+### 触发重绘的条件：
+改变元素外观属性。如：color，background-color，font-size等。
+
+### 触发重排的条件：
+
+任何页面布局和几何属性的改变都会触发重排，如下：
+- 增删DOM元素
+- 元素位置、尺寸变化，如：width、height、pading、margin、position
+- 浏览器尺寸变化、文本的改变或图片大小改变
+- 获取元素高宽（为了保证拿到的高宽是准确的，系统每次都是强制清空队列，即flush。如：offset-top（离浏览器上方的距离）、scroll-top（滚动条距离上边缘的距离）；
+
+### 优化
+- 浏览器批处理（浏览器自优化）
+- 把需要的数据存在变量里面，不要经常访问浏览器的flush队列属性。如：循环li，放到一个数组里面，最后一起append到ul里面，可以变面多层次重排；
+- 使用DocumentFragment创建完后一次性的加入document
+
