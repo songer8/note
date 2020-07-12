@@ -1,4 +1,4 @@
-- 页面导入样式时，使用link和@import有什么区别？
+### 页面导入样式时，使用link和@import有什么区别？
 ```html
 <head>
   <link rel="stylesheet" href="style.css">
@@ -14,7 +14,7 @@
 dom操作可执行性：
 ```
 
-- CSS常用选择器
+### CSS常用选择器
 类选择器 ``` .class``` ```标签上2个class .class1.class2 ```
 标签选择器 ``` button```
 id选择器 ``` #id```
@@ -23,14 +23,14 @@ id选择器 ``` #id```
 伪类选择器``` button:hover ```//悬停在按钮上，样式会、、、
 伪元素选择器 ``` p::first-line ``` //每个p元素第一行会、、、
 
-- 可继承属性
+### 可继承属性
 color
 font-
 text-
 list-style-
 etc...
 
-- 画三角形 ：通过设置boder
+### 画三角形 ：通过设置boder
 ```html
 <body>
 <div class='rect'></div>
@@ -44,7 +44,32 @@ etc...
       border-top: 100px solid rgb(29, 156, 194);
       border-bottom: 100px solid transparent;
     }
+
+    .triangle:after{
+    content: '';
+    border: 35px solid transparent;
+    border-bottom-color: lightgreen;
+}
 </style>
 </body>
+```
 
-- 
+### 伪元素&伪类元素
+- 伪元素
+```css
+p::first-line {
+  color: blue;
+  text-transform: uppercase;
+}
+/* 每一个 <p> 元素的第一行。 */
+```
+
+- 伪类元素
+```css
+a:link {color: #FF0000}		/* 未访问的链接 */
+a:visited {color: #00FF00}	/* 已访问的链接 */
+a:hover {color: #FF00FF}	/* 鼠标移动到链接上 */
+a:active {color: #0000FF}	/* 选定的链接 */
+```
+
+### 

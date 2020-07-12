@@ -1,4 +1,4 @@
-- 用递归算法实现，数组长度为5且元素的随机数在2-32间不重复的值。
+### 用递归算法实现，数组长度为5且元素的随机数在2-32间不重复的值。
 ```js
 function buildArray(arr, length, min, max) {
     var num = Math.floor(Math.random() * (max - min + 1)) + min;
@@ -9,23 +9,23 @@ var result = buildArray([], 5, 2, 32);
 console.log(result);
 ```
 
-- 返回到顶部的方法有哪些？
+### 返回到顶部的方法有哪些？
 ```js
 window.scrollTo(0,0); //ie不支持，但好用
 document.documentElement.scrollTop = 0;
 location.href += '#';
 ```
-- 数组去重的办法
+### 数组去重的办法
 ```js
 [...new Set(array)]
 ```
 
-- 获得精确小数的方式
+### 获得精确小数的方式
 ```js
 parseFloat((0.1+0.2).toFixed(10)) === 0.3//true
 ```
 
-- 让一个数组乱序
+### 让一个数组乱序
 ```js
 方法1:
 arr.sort((a, b) => Math.random() - .5)
@@ -37,3 +37,45 @@ arr.forEach((item,index)=>{
 });
 console.log(arr);
 ```
+
+### 内存泄漏
+- 定义
+由于设计错误，导致在释放该段内存之前就失去了对该段内存的控制，从而造成了内存的浪费。
+- 后果
+影响系统运行速度
+- 成因
+1、死循环函数、递归
+2、对象的引用地址丢失
+
+### 写一个获取数组的最大值、最小值的方法
+```js
+Math.max.apply(Array,[25,62,91,78,34,62]) //  91
+Math.min.apply(Array,[27,64,90,78,34,62]) // 27
+```
+
+### promise 的常用方法
+- promise.then
+
+- promise.catch
+```js
+new promise((resolve,reject)=>{
+    reject(1)
+}).then(value =>{
+    console.log(value)
+    //最后指定失败回调，可以改写成以下两种方式
+    //reason =>{throw reason}
+    //reason => promise.reject(reason);
+}).then(value =>{
+    console.log(value)
+}).catch(reason=>{
+    console.log(reason)
+})
+```
+
+- promise.race
+当iterable参数里的任意一个子promise被成功或失败后，父promise马上也会用子promise的成功返回值或失败详情作为参数调用父promise绑定的相应句柄，并返回该promise对象。
+
+- promise.all
+promise对象在iterable参数对象里所有的promise对象都成功的时候才会触发成功
+
+### apply、call、bind 的异同

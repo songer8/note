@@ -1,6 +1,6 @@
-# this
+### this
 - 指向函数的调用者
-```
+```js
 var obj = {
     foo: function() {
         console.log(this);
@@ -17,7 +17,7 @@ k(); // window
 ```
 
 - 指向new出来的实例
-```
+```js
 function Person(name, age) {//构造函数，类型对象
     this.name = name;
     this.age = age;
@@ -30,7 +30,7 @@ var john = new Person('John', 37);
 console.log(john.age);
 ```
 
-# 原型
+### 原型
 - 原理：
 ![原型对象](../image/prototype.png)
 - 作用：
@@ -44,7 +44,7 @@ console.log(john.age);
   原型也是对象，所以它也有原型；
   
   原型链
-```
+```js
 function person(name, age) {
     this.name = name;
     this.age = age;
@@ -63,7 +63,7 @@ var john = new person('John', 37);
 john.eat(); // i am eating
 ```
 
-# 类与继承
+### 类与继承
 ```js
 class Person {
     constructor(name, age) {
@@ -86,4 +86,20 @@ class Student extends Person {
 let tom = new Student(5, 'tom', 18);
 tom.eat();
 console.log(tom.name);
+```
+
+### static关键词
+代表静态方法，说明这个方法属于类的方法；
+```js
+class Person {
+    constructor(name) {
+        this.name = name;
+    }
+
+    static eat() {
+        console.log('i am eating');
+    }
+} 
+Person.eat()
+//Person为类，直接调用类的方法；
 ```
