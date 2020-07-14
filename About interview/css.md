@@ -72,4 +72,20 @@ a:hover {color: #FF00FF}	/* 鼠标移动到链接上 */
 a:active {color: #0000FF}	/* 选定的链接 */
 ```
 
-### 
+### 用CSS实现单行文本居中和多行文本左对齐并超出显示"..."
+```css
+/* 单行超出显示省略号 */
+overflow: hidden;
+text-overflow: ellipsis;/*...*/
+white-space: nowrap;
+
+/* 多行超出显示省略号 */
+display: -webkit-box;
+-webkit-line-clamp: 3;
+-webkit-box-orient: vertical;
+overflow: hidden;
+
+/* 单词折行 */
+word-wrap:break-word; 
+overflow:hidden;
+```

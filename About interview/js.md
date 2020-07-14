@@ -78,4 +78,50 @@ new promise((resolve,reject)=>{
 - promise.all
 promise对象在iterable参数对象里所有的promise对象都成功的时候才会触发成功
 
+### 闭包
+``` js
+function makeFunc() {
+    var name = "Mozilla";
+    function displayName() {
+        alert(name);
+    }
+    return displayName;
+}
+
+var myFunc = makeFunc();
+myFunc();
+// 内部函数可以访问上级作用域的变量
+```
+### 对于模块化的理解
+node用的是CommonJS，“require”
+前端用的是ESModule，“import”
+ps：最新版的nodeJS已经支持ESModule语法；
+
 ### apply、call、bind 的异同
+call、apply、bind都是为了解决改变this的指向。
+call、apply作用是相同的，只是传参的方式不同。除了第一个参数外，call可以接收一个参数列表，apply只接受一个参数数组。 
+bind绑定完之后返回一个新的函数，不执行。
+
+**详细说明**:https://www.runoob.com/w3cnote/js-call-apply-bind.html
+
+### 深拷贝、浅拷贝
+```js
+const carts = [
+    {name: '裤子', price: 1, count: 1},
+    {name: '鞋', price: 3, count: 1},
+    {name: 'T恤', price: 2, count: 2},
+    {name: '毛衣', price: 0, count: 1}
+]
+
+// 浅拷贝
+const newCarts = [...carts];
+
+// 深拷贝
+const newCarts = [];
+carts.forEach((item) => {
+    newCarts.push({...item});
+})
+
+console.log(carts === newCarts);
+console.log(carts[0] === newCarts[0]);
+```
