@@ -97,6 +97,18 @@ node用的是CommonJS，“require”
 前端用的是ESModule，“import”
 ps：最新版的nodeJS已经支持ESModule语法；
 
+# NodeJs的理解
+- 服务端编程语言，语法和js一样；
+- 和ESModule的区别；
+1、不存在window对象；
+2、引入方式不同（require/import）；
+3、NodeJs多很多接口；
+```
+eg：fileApi（用于操作本地文件）
+process（进程/线程管理）
+stream(流)
+```
+
 ### apply、call、bind 的异同
 call、apply、bind都是为了解决改变this的指向。
 call、apply作用是相同的，只是传参的方式不同。除了第一个参数外，call可以接收一个参数列表，apply只接受一个参数数组。 

@@ -85,6 +85,8 @@ React Router 用的是history管理，用来管理url对应组件关系的路由
 
 ![dom&bom](../image/dom&bom.png)
 
+ps：window.setTimeout是js对象；
+
 # 相比html,html5新增了哪些结构标签？
 - 结构标签语义话，便于代码阅读；
 - aside 侧边
@@ -188,20 +190,29 @@ React Router 用的是history管理，用来管理url对应组件关系的路由
 
 # 对于前端安全，说说XSS和CSRF的理解
 ### XSS：跨站脚本攻击；
-输入框的内容用的是innerHTML的话，在里面输入，script标签里面代码会执行；
+通过注入js的方式，偷网站信息，如cookie；
+eg：输入框的内容用的是innerHTML的话，在里面输入，script标签里面代码会执行；
 偷cookie；
 ### CSRF：跨站请求伪造；
-一个无防护的支付请求，a向b转账100元，请求从浏览器到服务端的过程中，运营商可以看到请求的内容，根据内容重新发起请求，再次转账；
+不在你网站上，发你网站的请求，偷钱偷积分；
+eg:一个无防护的支付请求，a向b转账100元，请求从浏览器到服务端的过程中，运营商可以看到请求的内容，根据内容重新发起请求，再次转账；
 - 防护方式：
 1、HTTPS
-2、request header里面referer指定请求是从哪个页面发起的；
-3、请求一次性有效
+2、request header里面referer指定，从哪个页面跳过来的；
+3、幂等：设置账户余额为300的情况下，余额为200；
+4、请求一次性有效（请求里面带签名，第二次发的请求不合法）
 
 # 跨域访问
 当一个资源从与该资源本身所在的服务器不同的域、协议或端口请求一个资源时，资源会发起一个跨域 HTTP 请求。(域名可以解析成ip和端口，ip或端口任意一个不同，都无法ping通)；
 
-跨域资源共享(CORS) 是一种机制，它使用额外的 HTTP 头来告诉浏览器  让运行在一个 origin (domain) 上的Web应用被准许访问来自不同源服务器上的指定的资源。（被访问的服务端配置```allow origin:* ```,浏览器放行）；
+1、跨域资源共享(CORS) 是一种机制，它使用额外的 HTTP 头来告诉浏览器  让运行在一个 origin (domain) 上的Web应用被准许访问来自不同源服务器上的指定的资源。（被访问的服务端配置```allow origin:* ```,浏览器放行）；
 
-任何HTML元素的src属性，浏览器都会允许跨域；```eg：<a>```
+2、任何HTML元素的src属性，浏览器都会允许跨域；```eg：<a>```
+
+3、server proxy（服务器代理）
+nigix（转发）和webpack（启动服务）
+由于浏览器限制，无法访问跨域网站，所以由服务器转发请求；
+
 
 详细说明**https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Access_control_CORS
+
