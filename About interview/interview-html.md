@@ -214,5 +214,20 @@ nigix（转发）和webpack（启动服务）
 由于浏览器限制，无法访问跨域网站，所以由服务器转发请求；
 
 
-详细说明**https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Access_control_CORS
+**详细说明**https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Access_control_CORS
+
+# HTTP协议发展
+- HTTP/0.9时代：短连接
+- HTTP/1.0时代：持久连接概念提出
+客户端在请求header中携带Connection
+- HTTP/1.1时代：持久连接成为默认的连接方式；提出pipelining概念
+弊端 —— HOLB（Head of Line Blocking）：请求串行，前面的请求堵塞，还是会后续请求被阻塞；
+- SPDY和HTTP/2：multiplexing
+请求和相应混杂进行，用streamId来区别。
+
+**详细说明**https://www.zhihu.com/question/51996213/answer/128801185
+
+# HTTP和HTTPS的区别
+- HTTP是超文本协议，默认端口是80，以明文方式传输。
+- HTTPS是HTTP协议的安全版，安全基础是SSL，以密文方式传输。
 
