@@ -137,3 +137,33 @@ carts.forEach((item) => {
 console.log(carts === newCarts);
 console.log(carts[0] === newCarts[0]);
 ```
+
+### 捕获异常的方式
+- 全局捕获未处理的
+```js
+window.onerror = function(message, source, lineno, colno, error) { ... }
+```
+- 全局捕获未处理的Promise rejection
+```js
+window.onunhandledrejection = function(e) {
+  console.log(e.reason);
+}
+```
+- 非异步且不是Promise的异常捕获
+把异步操作用 Promise 包装，通过内部判断，把错误 reject，在外面通过 promise.catch 捕获。
+```js
+const p3 = () =>  new Promise((reslove, reject) => {
+  setTimeout(() => {
+    reject('async error');
+  })
+});
+
+function main3() {
+  p3().catch(e => console.log(e));
+}
+main3();
+```
+
+### 事件循环
+![微任务和宏任务](../image/prototype.png)
+**详细说明**：https://zhuanlan.zhihu.com/p/78113300
