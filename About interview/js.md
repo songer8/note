@@ -167,3 +167,58 @@ main3();
 ### 事件循环
 ![微任务和宏任务](../image/prototype.png)
 **详细说明**：https://zhuanlan.zhihu.com/p/78113300
+
+### 写个还剩下多少天今年结束的倒计时
+```js
+const day =  Math.floor((new Date('2020-12-31 23:59:59:999') - new Date()) / (1000 * 60 * 60 * 24))
+```
+
+### 写一个函数求出N的阶乘
+```js
+const stepNum = (num) => (num === 1 ? num : num * stepNum(num - 1));
+```
+
+### fetch 和 ajax 区别
+fetch是对ajax做了一层promise的封装,但是对于请求的拦截,响应的拦截还是需要手动代码实现;
+ajax发请求需要带上method、状态码等信息；
+
+### 事件委托
+即利用事件冒泡机制处理指定一个事件处理程序，来管理某一类型的所有事件
+- 事件委托的作用
+1、利用冒泡的原理，将事件加到父级身上，触发执行效果，这样只在内存中开辟一块空间，既节省资源又减少DOM操作，提高性能
+2、可以为动态添加的元素绑定事件
+
+- js实现事件委托的三大步骤：
+1、给父元素绑定事件
+给元素ul添加绑定事件，通过addEventListener为父元素绑定事件
+2、监听子元素的冒泡事件
+这里默认是冒泡，点击子元素li会向上冒泡
+3、找到是哪个子元素的事件
+通过匿名回调函数的参数e用来接收事件对象，通过target获取触发事件的目标
+
+### download
+```js
+<a href="/i/w3school_logo_white.gif" download="w3logo">
+<img border="0" src="/i/w3school_logo_white.gif" alt="W3School">
+</a>
+```
+
+### 写一个函数找出给定数组中的最大差值
+```js
+function sum(x, y) {
+    if (typeof y === 'undefined') {
+        return function (y) {
+            return x + y
+        }
+    } else {
+        return x + y
+    }
+}
+console.log(sum(1,2));
+console.log(sum(1)(2));
+```
+
+### 写一个格式化金额的方法
+```js
+new Intl.NumberFormat('de-DE', { style: 'currency', currency: 'EUR' }).format(number)
+```

@@ -231,3 +231,19 @@ nigix（转发）和webpack（启动服务）
 - HTTP是超文本协议，默认端口是80，以明文方式传输。
 - HTTPS是HTTP协议的安全版，安全基础是SSL，以密文方式传输。
 
+# 新增form元素及属性
+**详细说明**：https://blog.csdn.net/u010556394/article/details/50769853
+
+# CDN
+将用户的访问指向距离最近的缓存服务器上，由缓存服务器响应用户请求。
+优点：加速网站访问
+
+# src、href、link的区别
+href是Hypertext Reference的缩写，表示超文本引用。常用的有：link、a。link是html标签。
+```html
+<link href="reset.css" rel=”stylesheet“/>
+```
+src表示引用资源,常用的有：img、script、iframe。
+```html
+<script src="script.js"></script>
+```

@@ -49,7 +49,7 @@ this.state.statePropertyName
 ```
 3、更新状态 => 组件界面更新
 ```
-this.setstate = {statePropertyName2 : value2}
+this.setstate({statePropertyName2 : value2})
 ```
 
 ### 例子
