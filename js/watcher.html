@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        class Watcher{
+            data = null;
+
+            listeners = [];
+
+            register(listener) {
+                this.listeners.push(listener);
+            }
+
+            setData(newData) {
+                this.data = newData;
+                this.listeners.forEach((listener) => {
+                    listener(this.data);
+                })
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <ul>
+
+    </ul>
+    <p></p>
+    <script>
+        // 根据todos内容生成列表项
+        function genTodos(todos) {
+            const ulElement = document.querySelector('ul');
+            let todosElements = todos.map((todo, index) => {
+                return `<li>${todo}</li>`;
+            })
+            ulElement.innerHTML = todosElements;
+        }
+
+        function genString(todos) {
+            document.querySelector('p').innerText = todos.toString();
+        }
+
+        const currwathcer = new Watcher();
+        currwathcer.register(genTodos);
+        currwathcer.register(genString);
+
+
+        currwathcer.setData(['跑步', '游泳']);
+
+        setTimeout(() => {
+            currwathcer.setData(['读书', '写字']);
+        }, 2000);
+
+        setTimeout(() => {
+            currwathcer.setData = ['睡觉', '呵呵'];
+        }, 5000);
+    </script>
+</body>
+
+</html>
