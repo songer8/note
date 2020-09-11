@@ -117,6 +117,18 @@ bind绑定完之后返回一个新的函数，不执行。
 **详细说明**:https://www.runoob.com/w3cnote/js-call-apply-bind.html
 
 ### 深拷贝、浅拷贝
+类型 | 和原数据是否指向同一对象 | 和原数据是否指向同一对象 | 原数据中包含子对象
+---|---|---|---
+赋值 | 
+浅拷贝 | 
+深拷贝 | 
+
+深拷贝就是最里面一层的引用地址都和原数据最里面一层的引用地址不一致。
+深拷贝最粗暴的方式为:
+```js
+JSON.parse(JSON.stringify(carts));
+```
+
 ```js
 const carts = [
     {name: '裤子', price: 1, count: 1},
