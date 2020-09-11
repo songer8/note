@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .test {
+            height: 100px;
+        }
+
+        .hello {
+            height: 500px;
+            background-color: green;
+        }
+    </style>
+</head>
+
+<body>
+    <div class=“container”>
+        <div class="test">test</div>
+        <div class="test"></div>
+        <div class="test"></div>
+        <div class="test"></div>
+        <div class="test"></div>
+        <div class="test"></div>
+        <div class="test"></div>
+        <div class="test"></div>
+        <div class="test"></div>
+        <div class="hello">hello</div>
+    </div>
+    <script>
+        let options = {
+            threshold: [0,0.2,0.4,0.6,0.8,1]
+        }
+        let observer = new IntersectionObserver(callback, options);
+
+        let target = document.querySelector('.hello');
+        observer.observe(target);
+
+        function callback(entries, observer){
+            // console.log(entries);
+            entries.forEach(entry => {
+                console.log(entry.intersectionRatio)
+                // Each entry describes an intersection change for one observed
+                // target element:
+                //   entry.boundingClientRect
+                //   entry.intersectionRatio
+                //   entry.intersectionRect
+                //   entry.isIntersecting
+                //   entry.rootBounds
+                //   entry.target
+                //   entry.time
+            });
+        };
+
+
+    </script>
+</body>
+
+</html>
