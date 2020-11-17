@@ -4,8 +4,8 @@
 200：OK
 201：Created 新增成功
 - 3**：重定向
-301：Moved Permanently 永久重定向
-302：Found 临时重定向(l临时停服)
+301：Moved Permanently 永久重定向(浏览器直接请求新域名)
+302：Found 临时重定向(浏览器还是请求旧域名)
 - 4**：客户端错误
 403：Forbidden 权限不足
 404：Not Found 请求失败
@@ -85,8 +85,6 @@ React Router 用的是history管理，用来管理url对应组件关系的路由
 
 ![dom&bom](../image/dom&bom.png)
 
-ps：window.setTimeout是js对象；
-
 # 相比html,html5新增了哪些结构标签？
 - 结构标签语义话，便于代码阅读；
 - aside 侧边
@@ -97,15 +95,17 @@ ps：window.setTimeout是js对象；
 
 # 重排&重绘
 ### 触发重绘的条件：
-改变元素外观属性。如：color，background-color，font-size等。
+改变元素外观属性。如：color，background-color等；
 
 ### 触发重排的条件：
 
 任何页面布局和几何属性的改变都会触发重排，如下：
 - 增删DOM元素
 - 元素位置、尺寸变化，如：width、height、pading、margin、position
-- 浏览器尺寸变化、文本的改变或图片大小改变
+- 浏览器尺寸变化、文本的改变或图片大小改变、改变font-size等；
 - 获取元素高宽（为了保证拿到的高宽是准确的，系统每次都是强制清空队列，即flush。如：offset-top（离浏览器上方的距离）、scroll-top（滚动条距离上边缘的距离）；
+
+**明细：** https://juejin.im/post/6844904083212468238
 
 ### 优化
 - 浏览器批处理（浏览器自优化）
@@ -135,28 +135,8 @@ ps：window.setTimeout是js对象；
 资源缓存，可以节省带宽、提高加载速度、降低服务器压力；
 
 ### 缓存类型
+![cache](../image/cache.png)
 
-#### 强制缓存
-- 浏览器不会像服务器发送任何请求，直接从本地缓存中读取文件并返回Status Code: 200；
-- 强缓存的header参数：
-1、Expires：过期时间 （http1.0）
-2、cache-Control：常用设置值如下：（http1.1）
-（1）max-age（过期时间）
-（2）no-cache（强制客户端直接向服务器发送请求，判断资源是否变更，是则返回新内容，否则返回304，未变更）
-（3）no-store（禁止一切缓存）
-
-#### 协商缓存
-向服务器发送请求，服务器会根据这个请求的request header的一些参数来判断是否命中协商缓存，如果命中，则返回304状态码并带上新的response header通知浏览器从缓存中读取资源；
-
-- Etag/If-None-Match：（HTTP1.1）
-![ETAG](../image/ETAG.png)
-
-- Last-Modified/If-Modified-Since：（HTTP1.0）
-1、Last-Modified：
-浏览器向服务器发送资源最后的修改时间
-2、If-Modified-Since：
-当资源过期时（浏览器判断Cache-Control标识的max-age过期），发现响应头具有Last-Modified声明，则再次向服务器请求时带上头if-modified-since。服务器收到请求后，发现有if-modified-since则与被请求资源的最后修改时间进行对比（Last-Modified）,若最后修改时间较新（大），说明资源又被改过，则返回最新资源，HTTP 200 OK;若最后修改时间较旧（小），说明资源无新修改，响应HTTP 304 走缓存。
-![last-modified](../image/last-modified.png)
 
 **详细说明**：https://juejin.im/post/5ccfccaff265da03ab233bf5
 
