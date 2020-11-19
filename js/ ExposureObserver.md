@@ -8,7 +8,9 @@ window.onscroll = function (e) {
   // 回掉函数里面监听到顶部的距离；
 }
 ```
-- 优化：加标记值，默认false，作为if条件，目的标记位打点只触发一次；
+- 优化：
+加标记值，默认false，作为if条件，目的标记位打点只触发一次；
+截流函数，减少向服务端发送取scroll-top请求的次数，减少重排的次数；
 
 2. intersection Observer Api；
 

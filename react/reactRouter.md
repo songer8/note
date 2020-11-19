@@ -11,6 +11,7 @@ ps：path指向服务端的文件夹，因此服务端不干预情况下请求�
    Broswer Router会向服务端发送请求，因此需要服务端Ngix配合，确保不同的请求返回同一个html；（主要应用场景：SEO，因为百度爬虫无法识别不同Hash，会认为网站很小）
 
 ### 应用
+- <Route />里面是hash和组件的对应关系，形成路由。
 ```html
 import { HashRouter as Router, Switch, Route } from 'react-router-dom';
 function App() {
