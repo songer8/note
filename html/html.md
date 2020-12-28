@@ -187,6 +187,7 @@ eg:一个无防护的支付请求，a向b转账100元，请求从浏览器到服
 当一个资源从与该资源本身所在的服务器不同的域、协议或端口请求一个资源时，资源会发起一个跨域 HTTP 请求。(域名可以解析成ip和端口，ip或端口任意一个不同，都无法ping通)；
 
 1、跨域资源共享(CORS) 是一种机制，它使用额外的 HTTP 头来告诉浏览器  让运行在一个 origin (domain) 上的Web应用被准许访问来自不同源服务器上的指定的资源。（被访问的服务端配置```allow origin:* ```,浏览器放行）；
+**详细说明**：https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Access_control_CORS
 
 2、任何HTML元素的src属性，浏览器都会允许跨域；```eg：<a>```
 
@@ -194,8 +195,24 @@ eg:一个无防护的支付请求，a向b转账100元，请求从浏览器到服
 nigix（转发）和webpack（启动服务）
 由于浏览器限制，无法访问跨域网站，所以由服务器转发请求；
 
+4、JONSP
+利用script标签的src属性，发送请求，响应中以函数包裹请求数据，函数已提前在前端定义好，执行后取到数据；
+```html
+<head>
+    <script src="api.b.com/getStudents?classId=2"></script>
+    <script>
+        // handleRes([students...]);
+       function handleRes() {
+                
+        }
+    </script>
+</head>
+```
 
-**详细说明**https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Access_control_CORS
+5、iframe标签
+iframe的postMessage方法，实现iframe和宿主页面之间通信；
+iframe和外部接口是同域，宿主页面通过postMessage，向iframe发请求；
+**详细说明**：https://juejin.cn/post/6844903477018116104
 
 # HTTP协议发展
 - HTTP/0.9时代：短连接
