@@ -1,3 +1,4 @@
+### 分支管理
 ![branch management](../image/branch-management.jpg)
 
 - checkout出来的分支，就是本地的分支；
