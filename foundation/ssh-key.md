@@ -5,4 +5,5 @@
 3. 点击右上角头像 -> setting -> SSH Keys
 4. 将公钥复制到SSH Keys的文本框，保存
 5. 在项目文件下，git clone地址（Clone with SSH），生成本地文件夹；
+
 ![ssh-key](../image/ssh-key.jpg)
