@@ -1,5 +1,5 @@
 ### 登陆服务器
-`ssh username@ip`
+`ssh username@ip eg:ssh root@47.102.209.111`
 ### 安装
 `apt install nginx`
 ### 配置
@@ -35,6 +35,7 @@ server {
 - 本地 `npm run build` 打包;（本地操作）
 - 上传本地打包文件到frontend目录;(本地操作)
 > `scp -r localdir(本地文件夹路径) root@ip:remotedir(远程文件夹路径)`
+- 可能需要登陆，参考第一步，然后cd到远程文件夹路径
 - 删除老代码，重命名新代码
 > `rm -rf infomap && mv build infomap`
 
