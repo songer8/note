@@ -9,11 +9,14 @@
 - 配置nginx规则;
 > `cd /etc/nginx/conf.d && touch infomap.conf`新建文件
 > `vi infomap.conf`进入infomap.conf
- - i 编辑
- - esc 退出编辑
- - :q 退出
- - :wq 保存退出
- - :q! 强制退出
+ ` 
+  i 编辑
+  esc 退出编辑
+  :q 退出
+  :wq 保存退出
+  :q! 强制退出
+`
+- 重启nginx`service nginx restart`
 ```
 server {
     listen 80; 
@@ -33,6 +36,5 @@ server {
 - 上传本地打包文件到frontend目录;(本地操作)
 > `scp -r localdir(本地文件夹路径) root@ip:remotedir(远程文件夹路径)`
 - 删除老代码，重命名新代码
-> `rm -rf infomap && mv build infomap `
-- 重启nginx`service nginx restart`
+> `rm -rf infomap && mv build infomap`
 
