@@ -1,0 +1,25 @@
+@font-face {
+  font-family: "iconfont"; /* Project id 2871513 */
+  src: url('iconfont.woff2?t=1634309366039') format('woff2');
+}
+
+.iconfont {
+  font-family: "iconfont" !important;
+  font-size: 16px;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-xuanzekuangmoren:before {
+  content: "\e6c1";
+}
+
+.icon-xuanzekuangxuanzhong:before {
+  content: "\e678";
+}
+
+.icon-fanhui:before {
+  content: "\e676";
+}
+

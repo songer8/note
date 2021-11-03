@@ -1,0 +1,89 @@
+.message{
+    position: relative;
+    .questioner {
+      color: #333333;
+      display: flex;
+      margin: 24px 30px;
+      border: 1px solid #e3e3e3;
+      box-shadow: 0 0 8px 1px rgba(153, 153, 153, 0.15);
+      border-radius: 12px;
+      padding: 24px 30px;
+      .avatar {
+        width: 130px;
+        height: 130px;
+        border-radius: 75px;
+      }
+      .questionerInfo {
+        margin-left: 24px;
+        .userName {
+          font-weight: bold;
+          font-size: 32px;
+          line-height: 48px;
+        }
+        .otherInfo {
+          color: #999999;
+          font-size: 24px;
+          line-height: 36px;
+        }
+      }
+      .label {
+        font-size: 24px;
+        width: 72px;
+        height: 36px;
+        border-radius: 8px;
+        padding: 0 12px;
+        color: #ffffff;
+        background-color: #5774ff;
+        margin-left: auto;
+      }
+    }
+    .workOrderInfo {
+      margin: 40px 35px;
+      .title {
+        font-size: 34px;
+        font-weight: bold;
+        padding: 24px 0;
+      }
+      .workOrderWrapper {
+        display: flex;
+        padding: 24px 0;
+        border-bottom: 1px solid #EEEEEE;
+        font-size: 28px;
+        .workOrderInfoTitle {
+          width: 170px;
+        }
+        .workOrderDetail {
+          color: #999999;
+          flex: 1;
+          text-align: right;
+        }
+      }
+    }
+    
+    .buttonWrapper{
+        border-top: 1px solid #EEEEEE;
+        padding: 20px 35px;
+        display: flex;
+        justify-content: space-between;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        .btn{
+            width: 330px;
+            height: 90px;
+            border-radius: 45px;
+            font-size: 32px;
+        }
+        .transfer{
+            color: #5774FF;
+            border: 1px solid #5774FF;
+            background-color: #FFFFFF;
+        }
+        .answer{
+            color: #FFFFFF;
+            border: 1px solid #979797;
+            background-color: #5774FF;
+        }
+    }
+}

@@ -1,5 +1,6 @@
-//debounce
-//多次触发取最后一次
+//debounce 防抖
+//多次触发取最后一次 /先不执行，等一等下一次，超过一段时间了，再执行
+//输入的时候，显示搜索建议
 export const debounce = (fn, wait = 300) => {
     let timerId = null;
     return function (...args) {
@@ -10,8 +11,9 @@ export const debounce = (fn, wait = 300) => {
     }
 }
 
-//throttle
-//多次触发取第一次
+//throttle 截流
+//多次触发取第一次 /先执行第一次，然后一段时间内的，都不执行
+//图片懒加载，scroll-top方式时，会反复查，这时候用截流
 export const throttle = (fn, wait = 300) => {
     let canRun = true;
     return function (...args) {

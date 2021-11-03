@@ -1,0 +1,17 @@
+.topbarWrapper{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 26px 30px;
+    border-bottom: 1px solid #DCDCDC;
+    .title{
+        font-size: 34px;
+        color: #333333;
+    }
+    :global(.icon-fanhui){
+        font-size: 34px;
+    }
+    .placeholder{
+        width: 34px;
+    }
+}
