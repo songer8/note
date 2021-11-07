@@ -292,6 +292,14 @@ shouldComponentUpdate 判断组件是否需要更新，类似于React.memo
 getDerivedStateFromProps 
 
 - css选择器
+通用选择器 *
+id选择器 #
+类选择器 .
+标签选择器 input
+A, B AB样式一样，少写代码
+A B 后代组合器，div span 会匹配<div>里面所有<span>,多层
+A > B 直接子代选择器 ul > li ul里面那层的li，再里面还有li不管
+A + B 紧邻兄弟选择器 h2 + p 紧邻h2 后面的 p标签
 
 - css水平垂直居中
 ```css
@@ -323,3 +331,31 @@ reducer是改变store
 - webpack plugin
 webpack的插件，可以做各种事情，比如htmlWebpackPlugin，用于将打包好的js插入html
 
+2021.11.3
+- rem是什么？怎么设置？
+
+- 行内元素设置高度
+
+- position属性怎么用？
+
+- css动画
+
+2021.11.4
+- react的事件
+用react合成事件的话，加在元素上的事件都被代理到了document上面（根元素）
+在react里面用原生的事件代理，事件还是指向该元素；
+- 为什么要有合成事件？
+1、抹平浏览器兼容性问题 
+2、优化写法
+- 阻止冒泡/阻止默认行为
+```
+e.stopPropgation()
+e.preventDefault()
+```
+- 为什么setState在setTimeout里面是同步执行的？怎么让他变成异步？
+在React的setState函数实现中，会根据一个变量isBatchingUpdates判断是直接更新this.state还是放到队列中回头再说，而isBatchingUpdates默认是false，也就表示setState会同步更新this.state，但是，有一个函数batchedUpdates，这个函数会把isBatchingUpdates修改为true，而当React在调用合成事件函数和生命周期函数之前就会调用这个batchedUpdates，造成的后果，就是由React控制的事件处理过程setState不会同步更新this.state。
+手动调用batchedUpdates方法，把它设成true；
+
+- useState和useRef的区别
+useState的值改变了会引起页面渲染
+useRef的值改变则不会
