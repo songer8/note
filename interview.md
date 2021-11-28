@@ -163,8 +163,8 @@ export const throttle = (fn, wait = 300) => {
 - 深拷贝&浅拷贝
 1、切断最外层引用关系为浅拷贝 
 eg： ```let newArr = [...arr]```
-eg：<font color = red>遍历</font>一个数组，把里面的每一项都放到一个新数组里面就是浅拷贝
-2、切断所有层的引用关系为深拷贝：<font color = red>递归</font>
+eg：**遍历**一个数组，把里面的每一项都放到一个新数组里面就是浅拷贝
+2、切断所有层的引用关系为深拷贝：**递归**
 如何实现：先做判断，判断类型是否是基础类型，是的话，放到新数组，不是的话，调用自己。
 
 
@@ -285,11 +285,9 @@ let obj2 = obj1 //则他们的引用地址是一样的
 ![stack&heap](https://pic1.zhimg.com/v2-cc92f7f8fc5fdf68507d4516f9cdb2dc_r.jpg)
 
 - 什么是类？类的继承是如何实现的？
-<font color = red>
-原型是函数上面的一个属性，里面存储类的所有实例共享的属性和方法。
+**原型是函数上面的一个属性，里面存储类的所有实例共享的属性和方法。
 属性的继承就是在子类的构造函数里面call父类的构造函数；
-方法的继承就是子类的原型等于父类的实例；
-</font>
+方法的继承就是子类的原型等于父类的实例；**
 ```js
 function Animal(name, legs){
     this.name = name;
@@ -569,7 +567,7 @@ console.log(returnedTarget);
 ```
 
 - React.Component VS React.PureComponent
-两者区别在于React.Component并未实现shouldComponentUpdate(),而React.PureComponent中以<font color = red>浅比较</font>prop和state的方式来实现该函数；
+两者区别在于React.Component并未实现shouldComponentUpdate(),而React.PureComponent中以**浅比较**prop和state的方式来实现该函数；
 如果赋予React组件相同的props和state，render()函数会渲染相同的内容；
 如果要进行深比较，或者其他细化的比较，那么可以使用shouldComponentUpdate()；
 
@@ -589,6 +587,7 @@ shouldComponentUpdate(nextProps,nextState){
 ```
 
 - useReducer
+是更自定义的useState，和redux的相同点，action分发和reducer的定义方式，区别是他没有redux中的store，所以无法替代redux；
 reducer函数接受state和action两个入参，并且返回一个与当前state成对的dispatch方法；
 ```js
 const [state, dispatch] = useReducer(reducer, initialValue, init);//init为定义初始值的函数
@@ -602,3 +601,52 @@ ps：
 Tim是基于webSocket实现的。
 webSocket：双通道，服务端可以主动给客户端发请求；
 long polling：长轮询/长链接？（大宝说的）我给服务端发请求，服务端hold请求，等服务端收到另一边客户端的消息再响应。客户端收到响应立即发个请求，永远保持服务端hold一个请求。
+
+2021.11.25 复深蓝
+- 如何封装table组件
+```js
+interface IProps {
+    header: array;
+    rows: []array;
+    pagination: Object;
+}
+const Table = ({header, rows, pagination}) => {
+
+}
+```
+
+- 冒泡排序
+```js
+let arr = [1, 6, 4, 7, 8, 4, 3, 0];
+let point = arr.length - 1;
+for (let i = point; i > 0; i--) {
+    for (let j = point; j >= point - i; j--) {
+        let temp;
+        if (arr[j] < arr[j - 1]) {
+            temp = arr[j];
+            arr[j] = arr[j - 1];
+            arr[j - 1] = temp
+        } else {
+            continue;
+        }
+    }
+}
+console.log(arr);
+```
+
+- 当前第二页，点击详情页，返回第二页
+
+- 对象遍历
+
+- ts里如何定一个key是string，value是number的对象类型
+```js
+let a: Record<string, number> 
+```
+- ts如何定义对象数组
+```js
+let b : Record<string, number>[]
+```
+- ts如何定义二维数组
+```js
+let c : number[][]
+```

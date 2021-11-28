@@ -43,12 +43,14 @@ https://zh.wikipedia.org/wiki/HTTP%E7%8A%B6%E6%80%81%E7%A0%81
 
 # web会话跟踪
 - cookie&session
-session把用户数据以对象形式保存在服务端，同时生成一个sessionId，并且以setCookie的方式，放在Response headers里面，返回给浏览器。
+session把用户数据以对象形式保存在服务端，同时生成一个sessionId。服务端setCookie的方式，放在Response headers里面，返回给浏览器。
 ![cookie](../image/cookies&session.png)
 
 - token（包含用户信息的加密的串）
-组成：header（base64）+ payload（base64）+ 非对称加密以下（header、payload、密钥）三部分，最后一部分也叫密钥。
-用户首次登陆，通过加密算法，将明文部分（eg：uid）+ 明文部分和秘钥生成的加密文件，放在cookie里面返回浏览器。当用户之后请求数据的时候，cookie中携带的token在服务端解密，明文部分和加密文件中的明文部分一致，则用户身份通过验证，可直接从token上获取需要的字段。或者明文部分重新加密，看和token是否一致。
+token有什么标准，比较通用的是jwt。
+jwt组成：header（加密算法）+ payload（明文信息）+ 签名，每一部分都base64发给前端。
+用户首次登陆，服务端生成token返回给前端。当用户之后的请求都会携带token。
+服务端验证jwt的逻辑：加密（header + payload + secret服务端保存的私钥 ）== signature
 缺点：token对于服务端cpu压力大。
 **详细说明**：https://jwt.io/
 
