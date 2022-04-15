@@ -82,6 +82,8 @@ server {
 - 本地 `npm run build` 打包;（本地操作）
 - 上传本地打包文件到frontend目录;(本地操作)
 > `scp -r localdir(本地文件夹路径) root@ip:remotedir(远程文件夹路径)`
+> 
+> 如果权限不足，给对应文件夹加权限：chmod 777 dir(相对路径或者绝对路径)
 - 可能需要登陆，参考第一步，然后cd到远程文件夹路径
 - 删除老代码，重命名新代码
 > `rm -rf infomap && mv build infomap`
