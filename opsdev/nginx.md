@@ -45,7 +45,7 @@ access_log  /txdisk/logs/nginx/access.log;
 /txdisk/local/nginx/sbin/nginx -s stop  # 停止
 /txdisk/local/nginx/sbin/nginx -s reload  # 重新载入配置
 ```
-- 当配置错误时，需要stop再start，直接reload无效
+- 当配置错误时，需要stop再start，直接reload无效;
 
 [参考链接](https://zhuanlan.zhihu.com/p/111009323)
 
