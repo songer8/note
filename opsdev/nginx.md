@@ -49,7 +49,7 @@ access_log  /txdisk/logs/nginx/access.log;
 
 [参考链接](https://zhuanlan.zhihu.com/p/111009323)
 
-### 配置
+### nginx默认安装并配置
 - nginx安装在 `/etc/nginx`下;
 - 新建目录 `/var/www/frontend`;(代码存放目录)
 > cd `/var/www && mkdir frontend`(新建文件夹名称)
@@ -70,7 +70,7 @@ server {
     server_name 47.102.209.64; # 可以写多个，用空格隔开
 
     location /infomap {
-        # root相当于替换url中的host
+        # /infomap/a.js + root => /var/www/frontend/infomap/a.js
         root /var/www/frontend;
         index index.html;
         # 依次尝试查找文件, $uri指path部分
@@ -78,6 +78,30 @@ server {
     }
 }
 ```
+
+- nginx前后端路由配置（在安装nginx下的nginx.conf进行配置）
+```
+    # 将带有/demo-server 的请求转发给下一行的具体服务，进行转发的url不会含有/demo-server
+    location /demo-server  { 
+            # 本机ip+端口 = 具体服务
+            proxy_pass http://127.0.0.1:8000/; 
+            proxy_set_header X-Real-IP $remote_addr;
+            proxy_set_header REMOTE-HOST $remote_addr;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        }
+
+	location /demo/ { 
+            # demo/a.js + alias =>/txdisk/wxDemo/demo-html/a.js
+            alias /txdisk/wxDemo/demo-html/; 
+            index index.html;
+            # 依次尝试查找文件, $uri指path部分
+            try_files $uri $uri/ /index.html =404;
+        }
+```
+
+- 安装目录新建
+比如在/txdisk下 `mkdir /wxDemo`
+
 ### 发布
 - 本地 `npm run build` 打包;（本地操作）
 - 上传本地打包文件到frontend目录;(本地操作)
@@ -87,3 +111,22 @@ server {
 - 可能需要登陆，参考第一步，然后cd到远程文件夹路径
 - 删除老代码，重命名新代码
 > `rm -rf infomap && mv build infomap`
+
+### 启动node后台服务
+```
+nohup node app.js &
+```
+
+### 如果遇到服务跑不通的情况怎么处理？
+![process](./nginx%E8%B0%83%E8%AF%95)
+- 明白整个请求的流程
+- `tail access.log / error.log` 查看前端请求是否成功打到了nginx
+- 先在服务器跑服务端代码，看看curl或者localhost是不是能成功访问 `curl localhost:8000/getJsApiTicket`
+- 在服务端代码加middleware，记录日志 
+```js
+app.use(function(req, res, next) {
+    console.log(req.originalUrl);
+    next();
+})
+```
+
