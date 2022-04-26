@@ -130,3 +130,10 @@ app.use(function(req, res, next) {
 })
 ```
 
+### 命令
+命令 | 注解
+-- | --
+lsof -i :8000 | 查看端口
+kill -9 PID | 停止某个pid的服务
+ps -aux | 查看全部在跑的服务
+ 
