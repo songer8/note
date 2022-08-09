@@ -21,3 +21,5 @@ console.log(`The character code ${sentence.charCodeAt(index)} is equal to ${sent
 // expected output: "The character code 113 is equal to q"
 
 ```
+
+## 类型分类
