@@ -11,6 +11,8 @@ for(let i = 0; i < 26; i++) {
         arr[i][j] = 0;
     }
 }
+
+let arr = new Array(3).fill(0).map(_ => new Array(3).fill(0))
 ```
 
 - 26个字母code转化
