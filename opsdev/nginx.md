@@ -110,12 +110,31 @@ server {
 > 如果权限不足，给对应文件夹加权限：chmod 777 dir(相对路径或者绝对路径)
 - 可能需要登陆，参考第一步，然后cd到远程文件夹路径
 - 删除老代码，重命名新代码
-> `rm -rf infomap && mv build infomap`
+> `rm -rf infomap && mv build infomap` 
+>
+>#把build文件改名为infomap
 
 ### 启动node后台服务
 ```
 nohup node app.js &
+
+#起服务端服务
+# nohup 不占终端
+& 管日志
 ```
+```
+nohup npm run start &
+#也可以这么起前端服务
+#前端使用这个方法，缺点： 1、代码没混淆，容易被爬代码 2、服务容易挂
+```
+
+### nginx反代
+为啥叫饭反代？
+- clash在客户端，为正向代理；
+- nginx在服务端的则为反向代理；
+
+方式：
+<!-- - 将静态文件放在服务端 -->
 
 ### 如果遇到服务跑不通的情况怎么处理？
 ![process](./nginx%E8%B0%83%E8%AF%95)
