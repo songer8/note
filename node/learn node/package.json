@@ -1,0 +1,14 @@
+{
+  "name": "learn-node",
+  "version": "1.0.0",
+  "description": "learn nodejs basic",
+  "main": "app.js",
+  "scripts": {
+    "develop": "nodemon combine.js"
+  },
+  "author": "syj",
+  "license": "ISC",
+  "dependencies": {
+    "nodemon": "^2.0.20"
+  }
+}
